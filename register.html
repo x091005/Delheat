@@ -92,19 +92,33 @@
         <label for="email"><b>Correo electrónico</b></label>
         <input type="text" placeholder="Ingresa tu correo electrónico" name="email" required>
 
-        <label for="password"><b>Contraseña</b></label>
-        <input type="password" placeholder="Ingresa tu contraseña" name="password" required>
+        <label for="        <input type="password" placeholder="Ingresa tu contraseña" name="psw" required>
 
         <button type="submit">Registrarse</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Recordar mis datos
+        </label>
+      </div>
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancelar</button>
+        <span class="psw">Olvidaste <a href="#">tu contraseña?</a></span>
       </div>
     </form>
+
     <script>
       function processForm() {
         var form = document.getElementById("myForm");
-        google.script.run.processForm(form);
-        form.reset();
-        alert("Registro exitoso");
+        var formData = new FormData(form);
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+          }
+        };
+        xhr.open("POST", "register.php", true);
+        xhr.send(formData);
       }
     </script>
   </body>
 </html>
+
