@@ -92,7 +92,8 @@
         <label for="email"><b>Correo electrónico</b></label>
         <input type="text" placeholder="Ingresa tu correo electrónico" name="email" required>
 
-        <label for="        <input type="password" placeholder="Ingresa tu contraseña" name="psw" required>
+        <label for="password"><b>Contraseña</b></label>
+        <input type="password" placeholder="Ingresa tu contraseña" name="password" required>
 
         <button type="submit">Registrarse</button>
         <label>
@@ -101,24 +102,21 @@
       </div>
       <div class="container" style="background-color:#f1f1f1">
         <button type="button" class="cancelbtn">Cancelar</button>
-        <span class="psw">Olvidaste <a href="#">tu contraseña?</a></span>
+        <span class="psw">
+</span>
       </div>
     </form>
-
     <script>
       function processForm() {
-        var form = document.getElementById("myForm");
-        var formData = new FormData(form);
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            alert(this.responseText);
-          }
-        };
-        xhr.open("POST", "register.php", true);
-        xhr.send(formData);
+        const form = document.getElementById("myForm");
+        const formData = new FormData(form);
+        const data = {};
+        for (const [key, value] of formData.entries()) {
+          data[key] = value;
+        }
+        console.log(data);
+        // Aquí puedes enviar la información a un servidor o hacer algo más con ella
       }
     </script>
   </body>
-</html>
-
+</html> 
