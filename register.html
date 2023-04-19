@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <title>Registro de Usuarios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: rgb(255, 255, 255);
+        color: #000000;
+        font-family: 'Roboto', sans-serif;
+      }
+      
+      h1 {
+        font-size: 36px; 
+        color: #000000;
+        text-align: center;
+      }
+
+      input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #0072C6;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #006ac0;
+        color: #fff;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      button:hover {
+        background-color: #005999;
+      }
+
+      .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+      }
+
+      .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+      }
+
+      img.avatar {
+        width: 40%;
+        border-radius: 50%;
+      }
+
+      .container {
+        padding: 16px;
+      }
+
+      span.psw {
+        float: right;
+        padding-top: 16px;
+      }
+
+      /* Change styles for span and cancel button on extra small screens */
+      @media screen and (max-width: 300px) {
+        span.psw {
+          display: block;
+          float: none;
+        }
+        .cancelbtn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form id="myForm" onsubmit="processForm(); return false;">
+      <div class="imgcontainer">
+       <img src="https://i.ibb.co/NCqvh8T/Add-Text-08-08-09-44-30-3.png" alt="Add-Text-08-08-09-44-30-3" border="0"></a>
+      </div>
+      <h1>Registro de Usuarios</h1>
+      <div class="container">
+        <label for="nombre"><b>Nombre</b></label>
+        <input type="text" placeholder="Ingresa tu nombre" name="nombre" required>
+
+        <label for="email"><b>Correo electrónico</b></label>
+        <input type="text" placeholder="Ingresa tu correo electrónico" name="email" required>
+
+        <label for="password"><b>Contraseña</b></label>
+        <input type="password" placeholder="Ingresa tu contraseña" name="password" required>
+
+        <button type="submit">Registrarse</button>
+      </div>
+    </form>
+    <script>
+      function processForm() {
+        var form = document.getElementById("myForm");
+        google.script.run.processForm(form);
+        form.reset();
+        alert("Registro exitoso");
+      }
+    </script>
+  </body>
+</html>

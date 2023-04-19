@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <title>Iniciar sesión</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        color: blue;
+        font-size: 30px;
+        text-align: center;
+      }
+      input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: blue;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+      .container {
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Iniciar sesión</h1>
+    <div class="container">
+      <label for="email"><b>Correo electrónico</b></label>
+      <input type="text" placeholder="Ingrese su correo electrónico" name="email" id="email" required>
+
+      <label for="password"><b>Contraseña</b></label>
+      <input type="password" placeholder="Ingrese su contraseña" name="password" id="password" required>
+
+      <button type="button" onclick="submitForm()">Ingresar</button>
+    </div>
+    <script>
+      function submitForm() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        google.script.run.withSuccessHandler(loginSuccessful).validateLogin(email, password);
+      }
+      function loginSuccessful(isValid) {
+        if (isValid) {
+          alert("¡Inicio de sesión exitoso!");
+        } else {
+          alert("Correo electrónico o contraseña incorrecta. Vuelva a intentarlo.");
+        }
+      }
+    </script>
+  </body>
+</html>
